@@ -13,170 +13,94 @@
             color: white;
         }
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        h1 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 30px;
-            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-        }
+        h1 { text-align: center; font-size: 2.5rem; margin-bottom: 20px; text-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
+        h2 { margin-bottom: 15px; }
         .screen { display: none; animation: fadeIn 0.3s ease; }
         .screen.active { display: block; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .btn {
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-block;
-            margin: 5px;
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 25px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .btn { background: linear-gradient(135deg, #00d4ff, #0099ff); border: none; padding: 12px 30px; font-size: 1rem; border-radius: 50px; color: white; cursor: pointer; transition: all 0.3s; display: inline-block; margin: 5px; }
         .btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4); }
-        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
         .btn-secondary { background: linear-gradient(135deg, #f093fb, #f5576c); }
         .btn-success { background: linear-gradient(135deg, #11998e, #38ef7d); }
-        input, textarea {
-            width: 100%;
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
+        .btn-small { padding: 8px 16px; font-size: 0.85rem; }
+        .btn-outline { background: transparent; border: 2px solid #00d4ff; }
+        input, textarea, select { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.1); color: white; font-size: 1rem; margin-bottom: 12px; }
         input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.5); }
-        input:focus, textarea:focus { outline: none; border-color: #00d4ff; }
-        .room-code {
-            font-size: 3rem;
-            font-weight: bold;
-            text-align: center;
-            letter-spacing: 10px;
-            color: #00d4ff;
-            background: rgba(0, 212, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-        }
-        .players-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
-        .player-tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-        }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #00d4ff; }
+        select option { background: #1a1a2e; color: white; }
+        label { display: block; margin-bottom: 5px; font-weight: 500; }
+        .room-code { font-size: 2.5rem; font-weight: bold; text-align: center; letter-spacing: 8px; color: #00d4ff; background: rgba(0, 212, 255, 0.1); padding: 15px; border-radius: 15px; margin: 15px 0; }
+        .players-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0; }
+        .player-tag { background: linear-gradient(135deg, #667eea, #764ba2); padding: 8px 16px; border-radius: 25px; font-weight: bold; font-size: 0.9rem; }
         .question-container { text-align: center; }
         .question-number { color: #00d4ff; font-size: 1rem; margin-bottom: 10px; }
-        .question-text { font-size: 1.5rem; margin-bottom: 30px; line-height: 1.5; }
-        .timer { font-size: 3rem; font-weight: bold; color: #00d4ff; margin-bottom: 20px; }
+        .question-text { font-size: 1.4rem; margin-bottom: 25px; line-height: 1.5; }
+        .timer { font-size: 3rem; font-weight: bold; color: #00d4ff; margin-bottom: 15px; }
         .timer.warning { color: #f5576c; animation: pulse 0.5s infinite; }
+        .timer.reveal { color: #38ef7d; }
         @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-        .options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .option {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1.1rem;
-            text-align: left;
-        }
-        .option:hover:not(.disabled) { background: rgba(0, 212, 255, 0.2); border-color: #00d4ff; transform: scale(1.02); }
+        .options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .option { background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.2); padding: 18px; border-radius: 15px; cursor: pointer; transition: all 0.3s; font-size: 1rem; text-align: left; }
+        .option:hover:not(.disabled) { background: rgba(0, 212, 255, 0.2); border-color: #00d4ff; }
         .option.selected { background: rgba(0, 212, 255, 0.3); border-color: #00d4ff; }
-        .option.correct { background: rgba(56, 239, 125, 0.3); border-color: #38ef7d; }
-        .option.wrong { background: rgba(245, 87, 108, 0.3); border-color: #f5576c; }
+        .option.correct { background: rgba(56, 239, 125, 0.3) !important; border-color: #38ef7d !important; }
+        .option.wrong { background: rgba(245, 87, 108, 0.3) !important; border-color: #f5576c !important; }
         .option.disabled { cursor: not-allowed; opacity: 0.7; }
-        .scoreboard { background: rgba(0, 0, 0, 0.3); border-radius: 15px; padding: 20px; margin-top: 20px; }
-        .scoreboard h3 { margin-bottom: 15px; color: #00d4ff; }
-        .score-row { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        .score-row:last-child { border-bottom: none; }
-        .winner-screen { text-align: center; }
-        .winner-name { font-size: 2.5rem; color: #ffd700; margin: 20px 0; text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
-        .trophy { font-size: 5rem; }
-        .file-upload {
-            border: 3px dashed rgba(255, 255, 255, 0.3);
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 20px;
-        }
+        .scoreboard { background: rgba(0, 0, 0, 0.3); border-radius: 15px; padding: 15px; margin-top: 15px; }
+        .scoreboard h3 { margin-bottom: 10px; color: #00d4ff; font-size: 1rem; }
+        .score-row { display: flex; justify-content: space-between; padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9rem; }
+        .explanation { background: rgba(0, 212, 255, 0.1); padding: 15px; border-radius: 10px; margin-top: 15px; border-left: 4px solid #00d4ff; text-align: left; }
+        .file-upload { border: 3px dashed rgba(255, 255, 255, 0.3); border-radius: 15px; padding: 30px; text-align: center; cursor: pointer; transition: all 0.3s; margin-bottom: 15px; }
         .file-upload:hover { border-color: #00d4ff; background: rgba(0, 212, 255, 0.1); }
         .file-upload input { display: none; }
-        .loading {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-top-color: #00d4ff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
+        .file-list { margin: 10px 0; }
+        .file-item { background: rgba(255, 255, 255, 0.1); padding: 8px 12px; border-radius: 8px; margin: 5px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+        .file-item .remove { color: #f5576c; cursor: pointer; margin-left: 10px; }
+        .loading { display: inline-block; width: 40px; height: 40px; border: 4px solid rgba(255, 255, 255, 0.3); border-top-color: #00d4ff; border-radius: 50%; animation: spin 1s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
-        .explanation { background: rgba(0, 212, 255, 0.1); padding: 15px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #00d4ff; }
-        .points-popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4rem;
-            font-weight: bold;
-            animation: pointsAnim 1s ease-out forwards;
-            z-index: 1000;
-        }
-        .points-popup.correct { color: #38ef7d; }
-        .points-popup.wrong { color: #f5576c; }
-        @keyframes pointsAnim {
-            0% { opacity: 1; transform: translate(-50%, -50%) scale(0.5); }
-            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-            100% { opacity: 0; transform: translate(-50%, -100%) scale(1); }
-        }
-        .flex-center { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .review-section { margin-top: 30px; text-align: left; }
-        .review-item { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 20px; margin-bottom: 15px; border-left: 4px solid; }
-        .review-item.correct-answer { border-left-color: #38ef7d; }
-        .review-item.wrong-answer { border-left-color: #f5576c; }
-        .review-question { font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; }
-        .review-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
-        .review-option { padding: 10px 15px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); font-size: 0.95rem; }
-        .review-option.your-answer { border: 2px solid #f5576c; background: rgba(245, 87, 108, 0.2); }
-        .review-option.correct-option { border: 2px solid #38ef7d; background: rgba(56, 239, 125, 0.2); }
-        .review-option.your-answer.correct-option { border: 2px solid #38ef7d; background: rgba(56, 239, 125, 0.2); }
-        .review-explanation { background: rgba(0, 212, 255, 0.1); padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-top: 10px; }
+        .flex-center { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .public-rooms { max-height: 300px; overflow-y: auto; }
+        .room-item { background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 15px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .room-item:hover { background: rgba(255, 255, 255, 0.1); }
+        .room-info h4 { margin-bottom: 5px; }
+        .room-info span { font-size: 0.85rem; opacity: 0.7; }
+        .quiz-item { background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 15px; margin-bottom: 10px; cursor: pointer; transition: all 0.3s; }
+        .quiz-item:hover { background: rgba(0, 212, 255, 0.2); }
+        .quiz-item.selected { background: rgba(0, 212, 255, 0.3); border: 2px solid #00d4ff; }
+        .quiz-item h4 { margin-bottom: 5px; }
+        .quiz-item span { font-size: 0.85rem; opacity: 0.7; }
+        .checkbox-group { display: flex; align-items: center; gap: 10px; margin: 10px 0; }
+        .checkbox-group input[type="checkbox"] { width: auto; margin: 0; }
+        .phase-indicator { text-align: center; padding: 10px; border-radius: 10px; margin-bottom: 15px; font-weight: bold; }
+        .phase-indicator.answering { background: rgba(0, 212, 255, 0.2); color: #00d4ff; }
+        .phase-indicator.revealing { background: rgba(56, 239, 125, 0.2); color: #38ef7d; }
+        .winner-screen { text-align: center; }
+        .winner-name { font-size: 2rem; color: #ffd700; margin: 15px 0; }
+        .trophy { font-size: 4rem; }
         .stats-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0; }
-        .stat-box { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; text-align: center; }
-        .stat-number { font-size: 2.5rem; font-weight: bold; }
+        .stat-box { background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 15px; text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: bold; }
         .stat-number.green { color: #38ef7d; }
         .stat-number.red { color: #f5576c; }
         .stat-number.blue { color: #00d4ff; }
-        .stat-label { font-size: 0.9rem; opacity: 0.8; margin-top: 5px; }
-        .tabs { display: flex; gap: 10px; margin-bottom: 20px; justify-content: center; }
-        .tab { padding: 12px 25px; border-radius: 25px; background: rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.3s; }
+        .stat-label { font-size: 0.85rem; opacity: 0.8; }
+        .tabs { display: flex; gap: 10px; margin-bottom: 15px; }
+        .tab { padding: 10px 20px; border-radius: 25px; background: rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.3s; font-size: 0.9rem; }
         .tab.active { background: linear-gradient(135deg, #00d4ff, #0099ff); }
-        .tab:hover:not(.active) { background: rgba(255, 255, 255, 0.2); }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
+        .review-item { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 15px; margin-bottom: 10px; border-left: 4px solid; }
+        .review-item.correct-answer { border-left-color: #38ef7d; }
+        .review-item.wrong-answer { border-left-color: #f5576c; }
         @media (max-width: 600px) {
-            .options, .review-options { grid-template-columns: 1fr; }
-            h1 { font-size: 2rem; }
+            .options { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; }
             .stats-summary { grid-template-columns: 1fr; }
-            .room-code { font-size: 2rem; letter-spacing: 5px; }
+            h1 { font-size: 1.8rem; }
+            .room-code { font-size: 1.8rem; letter-spacing: 5px; }
         }
     </style>
 </head>
@@ -187,93 +111,152 @@
         <!-- Home Screen -->
         <div id="home-screen" class="screen active">
             <div class="card">
-                <h2 style="text-align: center; margin-bottom: 20px;">Ready to test your cloud knowledge?</h2>
-                <div class="flex-center">
+                <h2 style="text-align: center;">Ready to test your knowledge?</h2>
+                <div class="flex-center" style="margin-top: 20px;">
                     <button class="btn" onclick="showScreen('create-screen')">🎮 Create Room</button>
                     <button class="btn btn-secondary" onclick="showScreen('join-screen')">🚀 Join Room</button>
                 </div>
+            </div>
+            
+            <div class="card">
+                <h2>🌐 Public Rooms</h2>
+                <div id="public-rooms" class="public-rooms">
+                    <p style="text-align: center; opacity: 0.7;">Loading...</p>
+                </div>
+                <button class="btn btn-small btn-outline" onclick="loadPublicRooms()" style="margin-top: 10px;">🔄 Refresh</button>
             </div>
         </div>
 
         <!-- Create Room Screen -->
         <div id="create-screen" class="screen">
             <div class="card">
-                <h2>Create a Quiz Room</h2>
-                <input type="text" id="host-name" placeholder="Your name" maxlength="20">
-                <button class="btn btn-success" onclick="createRoom()">Create Room</button>
-                <button class="btn btn-secondary" onclick="showScreen('home-screen')">Back</button>
+                <h2>🎮 Create Room</h2>
+                <label>Your Name</label>
+                <input type="text" id="host-name" placeholder="Enter your name">
+                <label>Room Name</label>
+                <input type="text" id="room-name" placeholder="e.g., Cloud Computing Finals">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="is-public" checked>
+                    <label for="is-public" style="margin: 0;">Make room public (visible to everyone)</label>
+                </div>
+                <div class="flex-center">
+                    <button class="btn" onclick="createRoom()">Create Room</button>
+                    <button class="btn btn-outline" onclick="showScreen('home-screen')">Back</button>
+                </div>
             </div>
         </div>
 
-        <!-- Join Room Screen -->
+        <!-- Join Screen -->
         <div id="join-screen" class="screen">
             <div class="card">
-                <h2>Join a Room</h2>
-                <input type="text" id="join-code" placeholder="Room Code (e.g., ABC123)" maxlength="6" style="text-transform: uppercase;">
-                <input type="text" id="player-name" placeholder="Your name" maxlength="20">
-                <button class="btn btn-success" onclick="joinRoom()">Join</button>
-                <button class="btn btn-secondary" onclick="showScreen('home-screen')">Back</button>
+                <h2>🚀 Join Room</h2>
+                <label>Room Code</label>
+                <input type="text" id="join-code" placeholder="Enter 6-letter code" maxlength="6" style="text-transform: uppercase;">
+                <label>Your Name</label>
+                <input type="text" id="player-name" placeholder="Enter your name">
+                <div class="flex-center">
+                    <button class="btn" onclick="joinRoom()">Join Room</button>
+                    <button class="btn btn-outline" onclick="showScreen('home-screen')">Back</button>
+                </div>
             </div>
         </div>
 
         <!-- Lobby Screen (Host) -->
         <div id="lobby-screen" class="screen">
             <div class="card">
-                <h2>Room Created! Share this code:</h2>
-                <div class="room-code" id="display-room-code">------</div>
-                
-                <h3>Upload Course Content</h3>
-                <div class="file-upload" onclick="document.getElementById('file-input').click()">
-                    <p>📄 Click to upload PDF or TXT file</p>
-                    <p style="font-size: 0.9rem; opacity: 0.7;">Or paste content below</p>
-                    <input type="file" id="file-input" accept=".pdf,.txt,.md" onchange="handleFileSelect(event)">
-                </div>
-                <div id="file-name" style="margin-bottom: 15px; color: #38ef7d;"></div>
-                
-                <textarea id="course-content" placeholder="Or paste your course notes here..." rows="6"></textarea>
-                
-                <div style="margin-bottom: 15px;">
-                    <label>Number of questions: </label>
-                    <input type="number" id="num-questions" value="10" min="5" max="30" style="width: 80px;">
-                </div>
-                
-                <button class="btn" onclick="generateQuiz()" id="generate-btn">🤖 Generate Quiz</button>
-                <div id="generate-status" style="margin-top: 15px; text-align: center;"></div>
-                
-                <h3 style="margin-top: 30px;">Players in Room:</h3>
+                <h2>📋 Room: <span id="room-name-display"></span></h2>
+                <p>Share this code with friends:</p>
+                <div class="room-code" id="display-room-code"></div>
+                <h3>Players (<span id="player-count">0</span>)</h3>
                 <div class="players-list" id="lobby-players"></div>
+            </div>
+            
+            <div class="card">
+                <h2>📚 Quiz Setup</h2>
                 
-                <button class="btn btn-success" onclick="startGame()" id="start-btn" disabled>▶️ Start Game</button>
+                <div class="tabs">
+                    <div class="tab active" onclick="switchTab('new-quiz')">📝 New Quiz</div>
+                    <div class="tab" onclick="switchTab('saved-quiz')">💾 Saved Quizzes</div>
+                </div>
+                
+                <div id="new-quiz-tab" class="tab-content active">
+                    <label>Quiz Name</label>
+                    <input type="text" id="quiz-name" placeholder="e.g., Chapter 1-3 Review">
+                    
+                    <label>Upload Files (PDF, TXT - multiple allowed)</label>
+                    <div class="file-upload" onclick="document.getElementById('file-input').click()">
+                        <input type="file" id="file-input" multiple accept=".pdf,.txt" onchange="handleFileSelect(event)">
+                        <p>📁 Click to select files or drag & drop</p>
+                        <p style="font-size: 0.85rem; opacity: 0.7;">Supports multiple files for different chapters</p>
+                    </div>
+                    <div id="file-list" class="file-list"></div>
+                    
+                    <label>Or Paste Content</label>
+                    <textarea id="course-content" rows="4" placeholder="Paste your notes here..."></textarea>
+                    
+                    <div class="grid-2">
+                        <div>
+                            <label>Number of Questions</label>
+                            <input type="number" id="num-questions" value="10" min="5" max="50">
+                        </div>
+                        <div>
+                            <label>Quiz Source</label>
+                            <select id="quiz-source">
+                                <option value="new">Generate New (uses AI)</option>
+                                <option value="mix">Mix: Saved + New</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="mix-options" style="display: none;">
+                        <label>Saved Quiz to Mix With</label>
+                        <select id="mix-quiz-select"></select>
+                        <label>New Questions to Generate</label>
+                        <input type="number" id="mix-count" value="5" min="1" max="20">
+                    </div>
+                    
+                    <button class="btn btn-success" id="generate-btn" onclick="generateQuiz()">🤖 Generate Quiz</button>
+                    <div id="generate-status" style="margin-top: 15px; text-align: center;"></div>
+                </div>
+                
+                <div id="saved-quiz-tab" class="tab-content">
+                    <p style="margin-bottom: 15px;">Select a previously saved quiz:</p>
+                    <div id="saved-quizzes-list"></div>
+                    <button class="btn btn-success" id="load-quiz-btn" onclick="loadSavedQuiz()" disabled>📥 Load Selected Quiz</button>
+                </div>
+            </div>
+            
+            <div class="card" id="quiz-status" style="display: none;">
+                <h3 style="color: #38ef7d;">✅ Quiz Ready!</h3>
+                <p id="quiz-info"></p>
+                <button class="btn btn-success" id="start-btn" onclick="startGame()">🚀 Start Game</button>
             </div>
         </div>
 
-        <!-- Waiting Room (Players) -->
+        <!-- Waiting Screen (Non-host) -->
         <div id="waiting-screen" class="screen">
             <div class="card">
-                <h2>Waiting for host...</h2>
-                <div class="room-code" id="waiting-room-code">------</div>
-                
-                <h3>Players:</h3>
+                <h2>⏳ Waiting for Host</h2>
+                <p>Room Code:</p>
+                <div class="room-code" id="waiting-room-code"></div>
+                <h3>Players</h3>
                 <div class="players-list" id="waiting-players"></div>
-                
-                <div id="quiz-status" style="text-align: center; margin-top: 20px;">
-                    <p>⏳ Waiting for quiz to be generated...</p>
-                </div>
+                <p id="waiting-status" style="margin-top: 15px; text-align: center;">Waiting for quiz...</p>
             </div>
         </div>
 
         <!-- Game Screen -->
         <div id="game-screen" class="screen">
             <div class="card question-container">
-                <div class="question-number" id="question-number">Question 1 of 10</div>
-                <div class="timer" id="timer">20</div>
-                <div class="question-text" id="question-text">Loading question...</div>
+                <div id="phase-indicator" class="phase-indicator answering">Answer Now!</div>
+                <div class="question-number" id="question-number"></div>
+                <div class="timer" id="timer">30</div>
+                <div class="question-text" id="question-text"></div>
                 <div class="options" id="options"></div>
                 <div class="explanation" id="explanation" style="display: none;"></div>
-                <button class="btn" id="next-btn" style="display: none; margin-top: 20px;" onclick="nextQuestion()">Next Question →</button>
             </div>
             <div class="scoreboard">
-                <h3>🏆 Scoreboard</h3>
+                <h3>🏆 Leaderboard</h3>
                 <div id="scoreboard"></div>
             </div>
         </div>
@@ -283,27 +266,20 @@
             <div class="card winner-screen">
                 <div class="trophy">🏆</div>
                 <h2>Game Over!</h2>
-                <div class="winner-name" id="winner-name">Winner</div>
-                
-                <div class="stats-summary" id="stats-summary"></div>
-                
-                <div class="tabs">
-                    <div class="tab active" onclick="switchTab('scores')">📊 Scores</div>
-                    <div class="tab" onclick="switchTab('review')">📝 Review Answers</div>
-                </div>
-                
-                <div id="scores-tab" class="tab-content active">
-                    <div class="scoreboard">
-                        <h3>Final Scores</h3>
-                        <div id="final-scores"></div>
-                    </div>
-                </div>
-                
-                <div id="review-tab" class="tab-content">
-                    <div class="review-section" id="review-section"></div>
-                </div>
-                
-                <button class="btn" onclick="location.reload()" style="margin-top: 20px;">🔄 Play Again</button>
+                <div class="winner-name" id="winner-name"></div>
+            </div>
+            <div class="card">
+                <div id="stats-summary" class="stats-summary"></div>
+            </div>
+            <div class="card">
+                <h3>📊 Final Scores</h3>
+                <div id="final-scores"></div>
+            </div>
+            <div class="card">
+                <div id="review-section"></div>
+            </div>
+            <div class="flex-center">
+                <button class="btn" onclick="location.reload()">🏠 Back to Home</button>
             </div>
         </div>
     </div>
@@ -312,12 +288,11 @@
         let roomCode = '';
         let playerName = '';
         let isHost = false;
-        let pollInterval;
-        let timerInterval;
-        let currentQuestionNum = 0;
-        let hasAnswered = false;
-        let scores = {};
-        let localTimeLeft = 20;
+        let pollInterval = null;
+        let selectedFiles = [];
+        let selectedQuizId = null;
+        let currentPhase = 'waiting';
+        let myAnswer = null;
 
         function showScreen(screenId) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -329,18 +304,59 @@
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             event.target.classList.add('active');
             document.getElementById(tabName + '-tab').classList.add('active');
+            
+            if (tabName === 'saved-quiz') loadSavedQuizzesList();
+        }
+
+        // Load public rooms on page load
+        async function loadPublicRooms() {
+            try {
+                const response = await fetch('/api/public-rooms');
+                const data = await response.json();
+                const container = document.getElementById('public-rooms');
+                
+                if (data.rooms.length === 0) {
+                    container.innerHTML = '<p style="text-align: center; opacity: 0.7;">No public rooms available. Create one!</p>';
+                    return;
+                }
+                
+                container.innerHTML = data.rooms.map(room => `
+                    <div class="room-item">
+                        <div class="room-info">
+                            <h4>${room.name}</h4>
+                            <span>👥 ${room.playerCount} players ${room.hasQuiz ? '• ✅ Quiz ready' : ''}</span>
+                        </div>
+                        <button class="btn btn-small" onclick="quickJoin('${room.code}')">Join</button>
+                    </div>
+                `).join('');
+            } catch (e) {
+                console.error('Error loading rooms:', e);
+            }
+        }
+
+        async function quickJoin(code) {
+            document.getElementById('join-code').value = code;
+            showScreen('join-screen');
         }
 
         async function createRoom() {
             playerName = document.getElementById('host-name').value.trim();
+            const roomName = document.getElementById('room-name').value.trim() || 'Quiz Room';
+            const isPublic = document.getElementById('is-public').checked;
+
             if (!playerName) { alert('Please enter your name!'); return; }
 
-            const response = await fetch('/api/create-room', { method: 'POST' });
+            const response = await fetch('/api/create-room', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ roomName, isPublic })
+            });
             const data = await response.json();
             roomCode = data.roomCode;
             isHost = true;
 
             document.getElementById('display-room-code').textContent = roomCode;
+            document.getElementById('room-name-display').textContent = roomName;
             showScreen('lobby-screen');
 
             await fetch('/api/join-room/' + roomCode, {
@@ -350,6 +366,7 @@
             });
 
             startPolling();
+            loadSavedQuizzesList();
         }
 
         async function joinRoom() {
@@ -373,7 +390,7 @@
 
         function startPolling() {
             pollRoom();
-            pollInterval = setInterval(pollRoom, 1500);
+            pollInterval = setInterval(pollRoom, 1000);
         }
 
         async function pollRoom() {
@@ -383,19 +400,19 @@
                 
                 const data = await response.json();
                 updatePlayersList(data.players);
-                scores = data.scores;
+                document.getElementById('player-count').textContent = data.players.length;
 
-                if (data.hasQuiz) {
-                    document.getElementById('quiz-status').innerHTML = '<p style="color: #38ef7d;">✅ Quiz ready!</p>';
-                    if (isHost) document.getElementById('start-btn').disabled = false;
+                if (data.hasQuiz && isHost) {
+                    document.getElementById('quiz-status').style.display = 'block';
+                    document.getElementById('quiz-info').textContent = `${data.questionCount} questions ready`;
+                }
+                
+                if (!isHost && data.hasQuiz) {
+                    document.getElementById('waiting-status').innerHTML = '<span style="color: #38ef7d;">✅ Quiz ready! Waiting for host to start...</span>';
                 }
 
                 if (data.status === 'playing') {
-                    if (data.currentQuestion !== currentQuestionNum - 1) {
-                        currentQuestionNum = data.currentQuestion + 1;
-                        hasAnswered = false;
-                        await loadQuestion();
-                    }
+                    await pollQuestion();
                 }
 
                 if (data.status === 'finished') {
@@ -405,231 +422,296 @@
             } catch (e) { console.error('Poll error:', e); }
         }
 
-        function updatePlayersList(players) {
-            const html = players.map(p => '<span class="player-tag">' + p.name + '</span>').join('');
-            const lobbyList = document.getElementById('lobby-players');
-            const waitingList = document.getElementById('waiting-players');
-            if (lobbyList) lobbyList.innerHTML = html;
-            if (waitingList) waitingList.innerHTML = html;
+        async function pollQuestion() {
+            const response = await fetch('/api/question/' + roomCode);
+            const data = await response.json();
+            
+            if (data.status === 'finished') {
+                await showResults();
+                return;
+            }
+            
+            if (data.status !== 'playing') return;
+            
+            showScreen('game-screen');
+            
+            const phaseIndicator = document.getElementById('phase-indicator');
+            const timerEl = document.getElementById('timer');
+            
+            document.getElementById('question-number').textContent = `Question ${data.questionNum} of ${data.totalQuestions}`;
+            document.getElementById('question-text').textContent = data.question;
+            
+            timerEl.textContent = data.timeLeft;
+            timerEl.classList.remove('warning', 'reveal');
+            
+            if (data.phase === 'answering') {
+                phaseIndicator.textContent = '⏱️ Answer Now!';
+                phaseIndicator.className = 'phase-indicator answering';
+                
+                if (data.timeLeft <= 5) timerEl.classList.add('warning');
+                
+                // Only update options if phase changed
+                if (currentPhase !== 'answering' || !document.querySelector('.option')) {
+                    myAnswer = null;
+                    const optionsEl = document.getElementById('options');
+                    optionsEl.innerHTML = data.options.map((opt, i) => 
+                        `<div class="option" onclick="selectAnswer(${i})" data-index="${i}">${opt}</div>`
+                    ).join('');
+                    document.getElementById('explanation').style.display = 'none';
+                }
+                
+                // Highlight my answer if already submitted
+                if (myAnswer !== null) {
+                    document.querySelectorAll('.option').forEach((opt, i) => {
+                        if (i === myAnswer) opt.classList.add('selected');
+                        opt.classList.add('disabled');
+                    });
+                }
+                
+                currentPhase = 'answering';
+            } else if (data.phase === 'revealing') {
+                phaseIndicator.textContent = '✅ Correct Answer';
+                phaseIndicator.className = 'phase-indicator revealing';
+                timerEl.classList.add('reveal');
+                
+                // Show correct answer
+                document.querySelectorAll('.option').forEach((opt, i) => {
+                    opt.classList.add('disabled');
+                    if (i === data.correctAnswer) {
+                        opt.classList.add('correct');
+                    } else if (i === myAnswer && myAnswer !== data.correctAnswer) {
+                        opt.classList.add('wrong');
+                    }
+                });
+                
+                if (data.explanation) {
+                    document.getElementById('explanation').innerHTML = '💡 ' + data.explanation;
+                    document.getElementById('explanation').style.display = 'block';
+                }
+                
+                currentPhase = 'revealing';
+            }
+            
+            updateScoreboard(data.scores);
         }
 
-        let selectedFile = null;
+        function updatePlayersList(players) {
+            const html = players.map(p => `<span class="player-tag">${p.name}</span>`).join('');
+            ['lobby-players', 'waiting-players'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = html;
+            });
+        }
+
         function handleFileSelect(event) {
-            selectedFile = event.target.files[0];
-            if (selectedFile) document.getElementById('file-name').textContent = '📎 ' + selectedFile.name;
+            const files = Array.from(event.target.files);
+            selectedFiles = [...selectedFiles, ...files];
+            updateFileList();
+        }
+
+        function updateFileList() {
+            const container = document.getElementById('file-list');
+            if (selectedFiles.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+            container.innerHTML = selectedFiles.map((file, i) => `
+                <div class="file-item">
+                    <span>📄 ${file.name}</span>
+                    <span class="remove" onclick="removeFile(${i})">✕</span>
+                </div>
+            `).join('');
+        }
+
+        function removeFile(index) {
+            selectedFiles.splice(index, 1);
+            updateFileList();
+        }
+
+        document.getElementById('quiz-source').addEventListener('change', function() {
+            document.getElementById('mix-options').style.display = this.value === 'mix' ? 'block' : 'none';
+            if (this.value === 'mix') loadMixQuizOptions();
+        });
+
+        async function loadSavedQuizzesList() {
+            try {
+                const response = await fetch('/api/saved-quizzes');
+                const data = await response.json();
+                
+                const container = document.getElementById('saved-quizzes-list');
+                if (data.quizzes.length === 0) {
+                    container.innerHTML = '<p style="opacity: 0.7;">No saved quizzes yet. Generate one first!</p>';
+                    return;
+                }
+                
+                container.innerHTML = data.quizzes.map(quiz => `
+                    <div class="quiz-item" onclick="selectSavedQuiz('${quiz.id}', this)">
+                        <h4>${quiz.name}</h4>
+                        <span>${quiz.questionCount} questions • ${new Date(quiz.createdAt).toLocaleDateString()}</span>
+                    </div>
+                `).join('');
+            } catch (e) {
+                console.error('Error loading quizzes:', e);
+            }
+        }
+
+        async function loadMixQuizOptions() {
+            try {
+                const response = await fetch('/api/saved-quizzes');
+                const data = await response.json();
+                const select = document.getElementById('mix-quiz-select');
+                select.innerHTML = data.quizzes.map(quiz => 
+                    `<option value="${quiz.id}">${quiz.name} (${quiz.questionCount} Q)</option>`
+                ).join('');
+            } catch (e) {
+                console.error('Error loading quizzes:', e);
+            }
+        }
+
+        function selectSavedQuiz(quizId, element) {
+            document.querySelectorAll('.quiz-item').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedQuizId = quizId;
+            document.getElementById('load-quiz-btn').disabled = false;
+        }
+
+        async function loadSavedQuiz() {
+            if (!selectedQuizId) return;
+            
+            const response = await fetch('/api/load-quiz/' + roomCode, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ quizId: selectedQuizId })
+            });
+            
+            const data = await response.json();
+            if (data.success) {
+                document.getElementById('quiz-status').style.display = 'block';
+                document.getElementById('quiz-info').textContent = `${data.numQuestions} questions loaded from "${data.quizName}"`;
+            }
         }
 
         async function generateQuiz() {
+            const quizName = document.getElementById('quiz-name').value || 'Untitled Quiz';
             const content = document.getElementById('course-content').value;
             const numQuestions = document.getElementById('num-questions').value;
+            const quizSource = document.getElementById('quiz-source').value;
             
-            if (!selectedFile && !content) { alert('Please upload a file or paste course content!'); return; }
+            if (selectedFiles.length === 0 && !content && quizSource === 'new') {
+                alert('Please upload files or paste content!');
+                return;
+            }
 
             const statusEl = document.getElementById('generate-status');
             const btn = document.getElementById('generate-btn');
             btn.disabled = true;
-            statusEl.innerHTML = '<div class="loading"></div><p>Generating quiz with AI... This may take a moment.</p>';
+            statusEl.innerHTML = '<div class="loading"></div><p>Generating quiz with AI...</p>';
 
             const formData = new FormData();
-            if (selectedFile) formData.append('file', selectedFile);
+            selectedFiles.forEach(file => formData.append('files', file));
             formData.append('content', content);
             formData.append('numQuestions', numQuestions);
+            formData.append('quizName', quizName);
+            
+            if (quizSource === 'mix') {
+                formData.append('useExisting', document.getElementById('mix-quiz-select').value);
+                formData.append('mixMode', 'true');
+                formData.append('mixCount', document.getElementById('mix-count').value);
+            }
 
             try {
-                const response = await fetch('/api/upload-content/' + roomCode, { method: 'POST', body: formData });
+                const response = await fetch('/api/upload-content/' + roomCode, {
+                    method: 'POST',
+                    body: formData
+                });
                 const data = await response.json();
                 
                 if (data.success) {
-                    statusEl.innerHTML = '<p style="color: #38ef7d;">✅ Quiz generated! ' + data.numQuestions + ' questions ready.</p>';
-                    document.getElementById('start-btn').disabled = false;
+                    statusEl.innerHTML = `<p style="color: #38ef7d;">✅ Quiz generated! ${data.numQuestions} questions ready.</p>`;
+                    document.getElementById('quiz-status').style.display = 'block';
+                    document.getElementById('quiz-info').textContent = `${data.numQuestions} questions ready`;
                 } else {
-                    statusEl.innerHTML = '<p style="color: #f5576c;">❌ ' + data.error + '</p>';
+                    statusEl.innerHTML = `<p style="color: #f5576c;">❌ ${data.error}</p>`;
                     btn.disabled = false;
                 }
             } catch (error) {
-                statusEl.innerHTML = '<p style="color: #f5576c;">❌ Error generating quiz. Please try again.</p>';
+                statusEl.innerHTML = '<p style="color: #f5576c;">❌ Error generating quiz</p>';
                 btn.disabled = false;
             }
         }
 
         async function startGame() {
             await fetch('/api/start-game/' + roomCode, { method: 'POST' });
-            showScreen('game-screen');
-            currentQuestionNum = 1;
-            await loadQuestion();
-        }
-
-        async function loadQuestion() {
-            showScreen('game-screen');
-            hasAnswered = false;
-            document.getElementById('explanation').style.display = 'none';
-            document.getElementById('next-btn').style.display = 'none';
-
-            const response = await fetch('/api/question/' + roomCode);
-            const data = await response.json();
-
-            if (data.status === 'finished') {
-                await showResults();
-                return;
-            }
-
-            if (data.status !== 'playing') return;
-
-            document.getElementById('question-number').textContent = 'Question ' + data.questionNum + ' of ' + data.totalQuestions;
-            document.getElementById('question-text').textContent = data.question;
-            
-            const optionsEl = document.getElementById('options');
-            optionsEl.innerHTML = data.options.map((opt, i) => 
-                '<div class="option" onclick="selectAnswer(' + i + ')" data-index="' + i + '">' + opt + '</div>'
-            ).join('');
-
-            localTimeLeft = data.timeLeft;
-            startTimer();
-            updateScoreboard(data.scores);
-        }
-
-        function startTimer() {
-            clearInterval(timerInterval);
-            const timerEl = document.getElementById('timer');
-            timerEl.textContent = localTimeLeft;
-            timerEl.classList.remove('warning');
-            
-            timerInterval = setInterval(() => {
-                localTimeLeft--;
-                timerEl.textContent = Math.max(0, localTimeLeft);
-                if (localTimeLeft <= 5) timerEl.classList.add('warning');
-                if (localTimeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    if (!hasAnswered) selectAnswer(-1);
-                }
-            }, 1000);
         }
 
         async function selectAnswer(index) {
-            if (hasAnswered) return;
-            hasAnswered = true;
-            clearInterval(timerInterval);
-
-            document.querySelectorAll('.option').forEach(opt => {
+            if (myAnswer !== null || currentPhase !== 'answering') return;
+            
+            myAnswer = index;
+            document.querySelectorAll('.option').forEach((opt, i) => {
                 opt.classList.add('disabled');
-                if (parseInt(opt.dataset.index) === index) opt.classList.add('selected');
+                if (i === index) opt.classList.add('selected');
             });
 
-            const response = await fetch('/api/submit-answer/' + roomCode, {
+            await fetch('/api/submit-answer/' + roomCode, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ playerName, answerIndex: index })
             });
-
-            const data = await response.json();
-            
-            document.querySelectorAll('.option').forEach((opt, i) => {
-                if (i === data.correctAnswer) opt.classList.add('correct');
-                else if (opt.classList.contains('selected') && !data.correct) opt.classList.add('wrong');
-            });
-
-            const popup = document.createElement('div');
-            popup.className = 'points-popup ' + (data.correct ? 'correct' : 'wrong');
-            popup.textContent = data.correct ? '+' + data.points : '✗';
-            document.body.appendChild(popup);
-            setTimeout(() => popup.remove(), 1000);
-
-            scores = data.scores;
-            updateScoreboard(scores);
-
-            if (data.explanation) {
-                document.getElementById('explanation').innerHTML = '<strong>💡 Explanation:</strong> ' + data.explanation;
-                document.getElementById('explanation').style.display = 'block';
-            }
-
-            if (isHost) {
-                document.getElementById('next-btn').style.display = 'inline-block';
-                document.getElementById('next-btn').disabled = false;
-                document.getElementById('next-btn').textContent = 'Next Question →';
-            } else {
-                document.getElementById('next-btn').style.display = 'inline-block';
-                document.getElementById('next-btn').textContent = 'Waiting for host...';
-                document.getElementById('next-btn').disabled = true;
-            }
-        }
-
-        async function nextQuestion() {
-            if (!isHost) return;
-            document.getElementById('next-btn').disabled = true;
-            await fetch('/api/next-question/' + roomCode, { method: 'POST' });
-            currentQuestionNum++;
-            await loadQuestion();
         }
 
         function updateScoreboard(scoresObj) {
             if (!scoresObj) return;
             const sorted = Object.entries(scoresObj).sort((a, b) => b[1] - a[1]);
             document.getElementById('scoreboard').innerHTML = sorted.map(([name, score], i) => 
-                '<div class="score-row"><span>' + (i === 0 ? '👑 ' : '') + name + '</span><span>' + score + ' pts</span></div>'
+                `<div class="score-row"><span>${i === 0 ? '👑 ' : ''}${name}</span><span>${score} pts</span></div>`
             ).join('');
         }
 
         async function showResults() {
             clearInterval(pollInterval);
-            clearInterval(timerInterval);
             showScreen('results-screen');
 
             const response = await fetch('/api/results/' + roomCode + '/' + encodeURIComponent(playerName));
             const data = await response.json();
 
             const [winnerName, winnerScore] = data.winner || ['No winner', 0];
-            document.getElementById('winner-name').textContent = winnerName + ' - ' + winnerScore + ' pts';
+            document.getElementById('winner-name').textContent = `${winnerName} - ${winnerScore} pts`;
 
             const myAnswers = data.myAnswers || [];
             const correctCount = myAnswers.filter(a => a.isCorrect).length;
             const wrongCount = myAnswers.filter(a => !a.isCorrect).length;
             const accuracy = myAnswers.length > 0 ? Math.round((correctCount / myAnswers.length) * 100) : 0;
 
-            document.getElementById('stats-summary').innerHTML = 
-                '<div class="stat-box"><div class="stat-number green">' + correctCount + '</div><div class="stat-label">Correct</div></div>' +
-                '<div class="stat-box"><div class="stat-number red">' + wrongCount + '</div><div class="stat-label">Wrong</div></div>' +
-                '<div class="stat-box"><div class="stat-number blue">' + accuracy + '%</div><div class="stat-label">Accuracy</div></div>';
+            document.getElementById('stats-summary').innerHTML = `
+                <div class="stat-box"><div class="stat-number green">${correctCount}</div><div class="stat-label">Correct</div></div>
+                <div class="stat-box"><div class="stat-number red">${wrongCount}</div><div class="stat-label">Wrong</div></div>
+                <div class="stat-box"><div class="stat-number blue">${accuracy}%</div><div class="stat-label">Accuracy</div></div>
+            `;
 
             const sorted = Object.entries(data.scores).sort((a, b) => b[1] - a[1]);
             document.getElementById('final-scores').innerHTML = sorted.map(([name, score], i) => 
-                '<div class="score-row" style="' + (i === 0 ? 'background: rgba(255, 215, 0, 0.2);' : '') + '">' +
-                '<span>' + (i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '��' : '') + ' ' + name + '</span>' +
-                '<span>' + score + ' pts</span></div>'
+                `<div class="score-row" style="${i === 0 ? 'background: rgba(255, 215, 0, 0.2);' : ''}">
+                    <span>${['🥇','🥈','🥉'][i] || ''} ${name}</span><span>${score} pts</span>
+                </div>`
             ).join('');
 
-            let reviewHtml = '<h3>📝 Your Answers Review</h3>';
-            if (myAnswers.length === 0) {
-                reviewHtml += '<p style="text-align: center; opacity: 0.7;">No answer data available</p>';
-            } else {
-                myAnswers.forEach((answer, index) => {
-                    reviewHtml += '<div class="review-item ' + (answer.isCorrect ? 'correct-answer' : 'wrong-answer') + '">' +
-                        '<div class="review-question">' + (answer.isCorrect ? '✅' : '❌') + ' Q' + (index + 1) + ': ' + answer.question + '</div>' +
-                        '<div class="review-options">';
-                    
-                    answer.options.forEach((opt, optIndex) => {
-                        let optClass = 'review-option';
-                        if (optIndex === answer.playerAnswer) optClass += ' your-answer';
-                        if (optIndex === answer.correctAnswer) optClass += ' correct-option';
-                        
-                        reviewHtml += '<div class="' + optClass + '">' + opt;
-                        if (optIndex === answer.playerAnswer && optIndex !== answer.correctAnswer) {
-                            reviewHtml += ' <span style="color: #f5576c;">(Your answer)</span>';
-                        }
-                        if (optIndex === answer.correctAnswer) {
-                            reviewHtml += ' <span style="color: #38ef7d;">✓ Correct</span>';
-                        }
-                        reviewHtml += '</div>';
-                    });
-                    
-                    reviewHtml += '</div>';
-                    if (answer.explanation) {
-                        reviewHtml += '<div class="review-explanation">💡 ' + answer.explanation + '</div>';
-                    }
-                    reviewHtml += '</div>';
-                });
-            }
+            let reviewHtml = '<h3>📝 Your Answers</h3>';
+            myAnswers.forEach((answer, index) => {
+                reviewHtml += `
+                    <div class="review-item ${answer.isCorrect ? 'correct-answer' : 'wrong-answer'}">
+                        <strong>${answer.isCorrect ? '✅' : '❌'} Q${index + 1}: ${answer.question}</strong>
+                        <p style="margin-top: 8px;">Your answer: ${answer.options[answer.playerAnswer] || 'No answer'}</p>
+                        ${!answer.isCorrect ? `<p style="color: #38ef7d;">Correct: ${answer.options[answer.correctAnswer]}</p>` : ''}
+                        ${answer.explanation ? `<p style="margin-top: 8px; opacity: 0.8;">💡 ${answer.explanation}</p>` : ''}
+                    </div>
+                `;
+            });
             document.getElementById('review-section').innerHTML = reviewHtml;
         }
+
+        // Initialize
+        loadPublicRooms();
     </script>
 </body>
 </html>
